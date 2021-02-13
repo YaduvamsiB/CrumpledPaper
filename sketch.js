@@ -6,7 +6,11 @@ const Render = Matter.Render;
 var dustbinObj, groundObject;
 var world;
 var paperObj;
-var binImage;
+var dustbinIMG, binImage;
+
+function preload() {
+  dustbinIMG = loadImage("dustbingreen.png");
+}
 
 function setup() {
   createCanvas(1600, 700);
@@ -18,7 +22,9 @@ function setup() {
   groundObject = new ground(width / 2, 670, width, 20);
   dustbinObj = new dustbin(1200, 650);
   paperObj = new paper(200, 200);
-  binImage = new bin(1200, 500);
+
+  binImage = createSprite(200, 400, 200, 200);
+  binImage.addImage(dustbinIMG);
 
   Engine.run(engine);
 }
@@ -28,12 +34,13 @@ function draw() {
   background(225);
 
   if (keyDown("UP_ARROW")) {
-    paperObj.velocityX = -2;
-    paperObj.velocityY = 2;
+    Matter.Body.applyForce(paperObj.body, paperObj.body.position, {
+      x: 30,
+      y: -70,
+    });
   }
 
   groundObject.display();
   dustbinObj.display();
-  binImage.display();
   paperObj.display();
 }
