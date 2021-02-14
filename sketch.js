@@ -6,7 +6,7 @@ const Render = Matter.Render;
 var dustbinObj, groundObject;
 var world;
 var paperObj;
-var dustbinIMG, binImage;
+var dustbinIMG, bin;
 
 function preload() {
   dustbinIMG = loadImage("dustbingreen.png");
@@ -23,8 +23,8 @@ function setup() {
   dustbinObj = new dustbin(1200, 650);
   paperObj = new paper(200, 200);
 
-  binImage = createSprite(200, 400, 200, 200);
-  binImage.addImage(dustbinIMG);
+  bin = createSprite(200, 400, 200, 200);
+  bin.addImage(dustbinIMG);
 
   Engine.run(engine);
 }
@@ -35,8 +35,8 @@ function draw() {
 
   if (keyDown("UP_ARROW")) {
     Matter.Body.applyForce(paperObj.body, paperObj.body.position, {
-      x: 30,
-      y: -70,
+      x: 20,
+      y: -50,
     });
   }
 

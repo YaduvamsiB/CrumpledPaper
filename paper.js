@@ -7,7 +7,7 @@ class paper {
       restitution: 0.5,
     };
 
-    this.body = Bodies.circle(x, y, 60, options);
+    this.body = Bodies.rectangle(x, y, 60, 60, options);
     this.image = loadImage("paper.png");
     World.add(world, this.body);
   }
@@ -21,7 +21,7 @@ class paper {
     rotate(angle);
     fill(225);
     imageMode(CENTER);
-    image(this.image, 0, 0, 150);
+    image(this.image, 0, 0, 100, 100);
     pop();
   }
 }
