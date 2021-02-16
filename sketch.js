@@ -33,10 +33,10 @@ function draw() {
   rectMode(CENTER);
   background(225);
 
-  if (keyDown("UP_ARROW")) {
+  if (keyWentDown("UP_ARROW")) {
     Matter.Body.applyForce(paperObj.body, paperObj.body.position, {
-      x: 20,
-      y: -50,
+      x: 180,
+      y: -300,
     });
   }
 
