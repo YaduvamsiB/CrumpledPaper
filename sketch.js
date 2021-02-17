@@ -23,8 +23,9 @@ function setup() {
   dustbinObj = new dustbin(1200, 650);
   paperObj = new paper(200, 200);
 
-  bin = createSprite(200, 400, 200, 200);
+  bin = createSprite(1200, 530, 200, 200);
   bin.addImage(dustbinIMG);
+  bin.scale = 0.9;
 
   Engine.run(engine);
 }
@@ -43,4 +44,6 @@ function draw() {
   groundObject.display();
   dustbinObj.display();
   paperObj.display();
+
+  drawSprites();
 }
